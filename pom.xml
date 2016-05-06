@@ -20,6 +20,7 @@
     <c3p0.version>0.9.2.1</c3p0.version>
     <mysql.connector.version>6.0.2</mysql.connector.version>
     <jdbcdslog.version>1.0.6</jdbcdslog.version>
+    <commons.lang3.version>3.1</commons.lang3.version>
 
 </properties>
 
