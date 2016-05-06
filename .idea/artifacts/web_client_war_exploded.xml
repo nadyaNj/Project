@@ -1,0 +1,33 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="web_client:war exploded">
+    <output-path>$PROJECT_DIR$/web/web_client/target/web_client-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="web_client" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="web_facade-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="web_facade" />
+          </element>
+          <element id="archive" name="service_impl-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="service_impl" />
+          </element>
+          <element id="archive" name="persistence_impl-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="persistence_impl" />
+          </element>
+          <element id="archive" name="persistence_core-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="persistence_core" />
+          </element>
+          <element id="archive" name="service_core-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="service_core" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/web/web_client/target/web_client-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="web_client/web/Web" />
+    </root>
+  </artifact>
+</component>

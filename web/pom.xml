@@ -14,7 +14,7 @@
     <modules>
         <module>web_facade</module>
         <module>web_admin</module>
-        <module>web/web_client</module>
+        <module>web_client</module>
     </modules>
 
 

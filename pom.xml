@@ -14,5 +14,13 @@
         <module>web</module>
     </modules>
 
+<properties>
+    <hibernate.version>5.1.0.Final</hibernate.version>
+    <spring.data.version>1.10.1.RELEASE</spring.data.version>
+    <c3p0.version>0.9.1.2</c3p0.version>
+    <mysql.connector.version>6.0.2</mysql.connector.version>
+    <jdbcdslog.version>1.0.6</jdbcdslog.version>
+</properties>
+
 
 </project>
