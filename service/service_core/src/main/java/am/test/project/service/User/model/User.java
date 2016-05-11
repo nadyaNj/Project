@@ -34,6 +34,9 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "permission")
+    private String permission;
+
 
     /*Getters and setters*/
 
@@ -67,5 +70,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPermission() {
+        return permission;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
     }
 }
