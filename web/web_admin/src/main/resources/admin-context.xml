@@ -10,6 +10,7 @@
     <import resource="facade_context.xml" />
 
 
+    <context:annotation-config/>
     <context:component-scan base-package="am.test.project.web.admin"/>
 
 
