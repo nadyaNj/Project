@@ -1,6 +1,11 @@
-package am.test.project.web.facade.user.model;
+package am.test.project.service.user.dto;
 
-import am.test.project.service.user.dto.UserDto;
+/**
+ * Created by nadya
+ * DATE: 5/6/16
+ * TIME: 1:04 PM
+ */
+
 import am.test.project.service.user.model.UserModel;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -9,19 +14,13 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import java.io.Serializable;
 
 /**
- * Created by nadya
- * DATE: 5/11/16
- * TIME: 11:49 AM
+ * UserDto model for user database madel
  */
+public class UserDto implements Serializable {
 
-/**
- * facade model for userModel
- */
-public class UserFacadeModel implements Serializable {
-    private static final long serialVersionUID = 3658128029016736711L;
+    private static final long serialVersionUID = -5399172957685507834L;
 
-    /* Properties */
-
+    /*Properties*/
     private Long id;
 
     private String userName;
@@ -30,7 +29,7 @@ public class UserFacadeModel implements Serializable {
 
     private String password;
 
-    /*Getter and Setter*/
+    /* Getters and Setters */
 
     public Long getId() {
         return id;
@@ -48,14 +47,6 @@ public class UserFacadeModel implements Serializable {
         this.userName = userName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -65,18 +56,26 @@ public class UserFacadeModel implements Serializable {
     }
 
 
-    /**
-     * update UserModel model fro services to userModel facade model
-     * @param userDto
-     */
-    public void updateUserToFacade(UserDto userDto) {
-        userDto.setId(getId());
-        userDto.setUserName(getUserName());
-        userDto.setEmail(getEmail());
-        userDto.setPassword(getPassword());
+    public String getEmail() {
+        return email;
     }
 
-    /* Hashcode, Equals and ToString */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * update Dto to service model
+     * @param userModel
+     */
+    public void updateModelToDto(UserModel userModel) {
+        userModel.setId(getId());
+        userModel.setUserName(getUserName());
+        userModel.setEmail(getEmail());
+        userModel.setPassword(getPassword());
+
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -84,25 +83,26 @@ public class UserFacadeModel implements Serializable {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        UserFacadeModel that = (UserFacadeModel) o;
+        UserDto userDto = (UserDto) o;
 
         return new EqualsBuilder()
-                .append(getId(), that.getId())
-                .append(getUserName(), that.getUserName())
-                .append(getEmail(), that.getEmail())
-                .append(getPassword(), that.getPassword())
+                .append(getId(), userDto.getId())
+                .append(getUserName(), userDto.getUserName())
+                .append(getEmail(), userDto.getEmail())
+                .append(getPassword(), userDto.getPassword())
                 .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37)
+        return new HashCodeBuilder()
                 .append(getId())
                 .append(getUserName())
                 .append(getEmail())
                 .append(getPassword())
                 .toHashCode();
     }
+
 
 
     @Override
@@ -114,6 +114,4 @@ public class UserFacadeModel implements Serializable {
                 .append("password", getPassword())
                 .toString();
     }
-
-
 }

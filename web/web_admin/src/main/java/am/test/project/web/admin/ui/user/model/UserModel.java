@@ -1,11 +1,6 @@
-package am.test.project.service.User.dto;
+package am.test.project.web.admin.ui.user.model;
 
-/**
- * Created by nadya
- * DATE: 5/6/16
- * TIME: 1:04 PM
- */
-
+import am.test.project.web.facade.user.model.UserFacadeModel;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -13,13 +8,15 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import java.io.Serializable;
 
 /**
- * Dto model for User database madel
+ * Created by nadya
+ * DATE: 5/18/16
+ * TIME: 11:14 AM
  */
-public class User implements Serializable {
-
-    private static final long serialVersionUID = -5399172957685507834L;
+public class UserModel implements Serializable {
+    private static final long serialVersionUID = -1687336537222909774L;
 
     /*Properties*/
+
     private Long id;
 
     private String userName;
@@ -28,7 +25,7 @@ public class User implements Serializable {
 
     private String password;
 
-    /* Getters and Setters */
+    /*Getter and Setter*/
 
     public Long getId() {
         return id;
@@ -54,32 +51,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        return new EqualsBuilder()
-                .append(getId(), user.getId())
-                .append(getUserName(), user.getUserName())
-                .append(getEmail(), user.getEmail())
-                .append(getPassword(), user.getPassword())
-                .isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder()
-                .append(getId())
-                .append(getUserName())
-                .append(getEmail())
-                .append(getPassword())
-                .toHashCode();
-    }
-
     public String getPassword() {
         return password;
     }
@@ -88,9 +59,44 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    /* */
+    /**
+     * Update user page Model to facade
+     * @param userFacadeModel
+     */
+    public void updateUserPageProperties(final UserFacadeModel userFacadeModel) {
+        userFacadeModel.setId(getId());
+        userFacadeModel.setUserName(getUserName());
+        userFacadeModel.setEmail(getEmail());
+        userFacadeModel.setPassword(getPassword());
+    }
 
+    /*Hashcode, Equals, toString*/
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (!(o instanceof UserModel)) return false;
+
+        UserModel userModel = (UserModel) o;
+
+        return new EqualsBuilder()
+                .append(getId(), userModel.getId())
+                .append(getUserName(), userModel.getUserName())
+                .append(getEmail(), userModel.getEmail())
+                .append(getPassword(), userModel.getPassword())
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(getId())
+                .append(getUserName())
+                .append(getEmail())
+                .append(getPassword())
+                .toHashCode();
+    }
 
     @Override
     public String toString() {
@@ -101,4 +107,6 @@ public class User implements Serializable {
                 .append("password", getPassword())
                 .toString();
     }
+
+
 }

@@ -1,6 +1,4 @@
-package am.test.project.service.User.model;
-
-import org.springframework.beans.factory.annotation.Autowired;
+package am.test.project.service.user.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,7 +15,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="user")
-public class User implements Serializable {
+public class UserModel implements Serializable {
 
     private static final long serialVersionUID = 4162227130285004914L;
 

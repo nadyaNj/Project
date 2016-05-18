@@ -62,16 +62,40 @@
         </dependency>
     </dependencies>
     <build>
+        <resources>
+        <resource>
+            <filtering>false</filtering>
+            <directory>src/main/resources</directory>
+        </resource>
+        <resource>
+            <filtering>false</filtering>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <excludes>
+                <exclude>**/*.java</exclude>
+            </excludes>
+        </resource>
+    </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${maven.war.plugin.version}</version>
                 <configuration>
-                    <warName>web_admin</warName>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
                 </configuration>
+
             </plugin>
         </plugins>
+
+
     </build>
 
 

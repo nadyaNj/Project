@@ -1,6 +1,6 @@
 package am.test.project.web.facade.user;
 
-import org.springframework.stereotype.Service;
+import am.test.project.web.facade.user.model.UserFacadeModel;
 
 import java.io.Serializable;
 
@@ -14,7 +14,6 @@ import java.io.Serializable;
  * Facade for user
  */
 
-@Service
-public class UserFacade implements Serializable {
-    private static final long serialVersionUID = 203343700821737235L;
+public interface UserFacade extends Serializable {
+     UserFacadeModel getLoginUser(String userName, String password);
 }
